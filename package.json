@@ -18,6 +18,10 @@
   "bin": {
     "dev": "dest/index.js"
   },
+  "files": [
+    "dest",
+    "index.js"
+  ],
   "homepage": "https://github.com/mengdu/dev-cli",
   "author": "lanyue <lanyueos@qq.com>",
   "license": "MIT",
