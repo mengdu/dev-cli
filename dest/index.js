@@ -16,7 +16,7 @@ var _package2 = _interopRequireDefault(_package);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var info = '\n\u25CF ' + _package2.default.name + ' v' + _package2.default.version + '\n\u25CF ' + _package2.default.description + '\n\u25CF ' + _colors2.default.blue(_package2.default.homepage) + '\n\u25CF ' + _package2.default.author + '\n';
+var info = '\n\u25CF ' + _package2.default.name + ' v' + _package2.default.version + '\n\u25CF ' + _package2.default.description + '\n\u25CF ' + _colors2.default.blue(_package2.default.homepage) + '\n\u25CF ' + _package2.default.author.name + ' <' + _package2.default.author.email + '>\n';
 // import execa from 'execa'
 
 
