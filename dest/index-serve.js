@@ -20,7 +20,12 @@ var _browserSync2 = _interopRequireDefault(_browserSync);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-_commander2.default.name('dev serve').usage('<dir> [port]').option('-p, --port <port>', 'http server port', Number, 8080).option('-d, --dir [dir]', 'static file dir', '.').option('-o, --open', 'Open browser automatically').option('-w, --watch', 'Watch files change', Boolean).option('-c, --config <config>', 'Use `Browsersync` config file, see: https://browsersync.io/docs/options', null);
+function toInt(val) {
+  return parseInt(val);
+}
+
+_commander2.default.name('dev serve').usage('<dir> [port]').option('-p, --port <port>', 'Http server port', toInt, 8080).option('-d, --dir [dir]', 'Static file dir', '.').option('-o, --open', 'Open browser automatically').option('-w, --watch', 'Watch files change').option('--ui', 'Start Browsersync ui dashboard').option('--ui-port <port>', 'Browsersync ui server port', toInt, 3001) // --ui-port 8080
+.option('-c, --config <config>', 'Use `Browsersync` config file, see: https://browsersync.io/docs/options', null);
 
 _commander2.default.parse(process.argv);
 
@@ -36,11 +41,18 @@ var open = !!_commander2.default.open;
 var options = {
   server: dir,
   open: open,
-  port: port
+  port: port,
+  ui: false
 };
 
 if (_commander2.default.watch) {
   options.files = dir;
+}
+
+if (_commander2.default.ui) {
+  options.ui = {
+    port: _commander2.default.uiPort
+  };
 }
 
 if (_commander2.default.config) {
@@ -51,5 +63,6 @@ if (_commander2.default.config) {
     options = _extends({}, options, config);
   }
 }
+
 // console.log(options)
 (0, _browserSync2.default)(options);
