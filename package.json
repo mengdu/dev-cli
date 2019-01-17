@@ -1,7 +1,7 @@
 {
   "name": "dev-cli",
   "version": "0.1.0",
-  "description": "A personal development tool",
+  "description": "A convenient development tools",
   "main": "index.js",
   "scripts": {
     "dev": "babel src --out-dir dest -w",
