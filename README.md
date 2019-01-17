@@ -28,6 +28,5 @@ dev serve [options] <dir> <port>
  + `-o, --open` 自动打开浏览器，默认 false
  + `-w, --watch` 开启监听文件变化，刷新页面，默认 false
  + `--ui` 开启 ，默认 `Browsersync` ui 页面 ，默认false
- + `--ui` 开启 ，默认 `Browsersync` ui 页面 ，默认false
  + `--ui-port <port>` Browsersync ui 服务端口 (default: 3001)
  + `-c, --config <config>` 指定 [Browsersync 配置文件](https://browsersync.io/docs/options)
