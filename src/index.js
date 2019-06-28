@@ -13,6 +13,7 @@ program
   .usage('<command> [options]')
   .option('-i, --info', 'Tool introduction', info)
   .command('serve', 'Create a local static file server')
+  .command('fanyi', 'Translate tool')
 
 program.parse(process.argv)
 
