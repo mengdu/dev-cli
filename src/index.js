@@ -1,20 +1,29 @@
 #!/usr/bin/env node
 'use strict'
 import program from 'commander'
-import colors from 'colors'
-// import execa from 'execa'
+import { color } from './utils'
 import pkg from '../package'
-
-const info = `\n● ${pkg.name} v${pkg.version}\n● ${pkg.description}\n● ${colors.blue(pkg.homepage)}\n● ${pkg.author.name} <${pkg.author.email}>\n`
 
 program
   .name('dev')
   .version(pkg.version)
   .usage('<command> [options]')
-  .option('-i, --info', 'Tool introduction', info)
+  .option('-i, --info', 'Tool introduction')
   .command('serve', 'Create a local static file server')
   .command('fanyi', 'Translate tool')
 
 program.parse(process.argv)
 
-if (program.info) console.log(info)
+const version = color(` ${pkg.name} `, '1;100') + color(` v${pkg.version} `, '1;104')
+const infos = [
+  '\n  ' + version + ' ' + pkg.description + '\n',
+  '     +--------------------------------------------------------+',
+  '     |                                                        |',
+  `     |   npm i -g ${pkg.repository.url}   |`,
+  '     |                                                        |',
+  '     +--------------------------------------------------------+\n',
+  `  + ${color(pkg.homepage, 34)}`,
+  `  + Make by ${pkg.author.name} <${color(pkg.author.email, 32)}>`
+]
+
+if (program.info) console.log(infos.join('\n'))
