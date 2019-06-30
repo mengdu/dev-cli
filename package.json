@@ -22,6 +22,10 @@
     "dest",
     "index.js"
   ],
+  "repository": {
+    "type": "https",
+    "url": "git+https://github.com/mengdu/dev-cli.git"
+  },
   "homepage": "https://github.com/mengdu/dev-cli",
   "author": {
     "name": "lanyue",
