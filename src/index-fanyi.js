@@ -22,10 +22,6 @@ function dye (val) {
   return color(val, 92)
 }
 
-function copyright () {
-  return color('https://github.com/mengdu/dev-cli', '37;3')
-}
-
 async function main () {
   if (program.args.length === 0) program.help()
 
@@ -55,7 +51,7 @@ async function main () {
 
       console.log(dye(res.trans_result[0].dst), color('-', 37), color(res.to, 34))
       console.log('-----------------------')
-      console.log(color(' From ', 100) + color(' fanyi.baidu.com ', 104) + ' ' + copyright())
+      console.log(color(' From ', 100) + color(' fanyi.baidu.com ', 104))
     } else {
       console.log('----------------------')
       const res = await cibaFanyi(config.ciba.key, text)
@@ -124,7 +120,7 @@ async function main () {
       }
 
       console.log('----------------------')
-      console.log(color(' From ', 100) + color(' open.iciba.com ', 104) + ' ' + copyright())
+      console.log(color(' From ', 100) + color(' open.iciba.com ', 104))
     }
   } catch (err) {
     console.log(color(' Fail ', 41), err.message)
