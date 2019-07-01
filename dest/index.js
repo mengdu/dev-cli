@@ -6,9 +6,7 @@ var _commander = require('commander');
 
 var _commander2 = _interopRequireDefault(_commander);
 
-var _colors = require('colors');
-
-var _colors2 = _interopRequireDefault(_colors);
+var _utils = require('./utils');
 
 var _package = require('../package');
 
@@ -16,12 +14,11 @@ var _package2 = _interopRequireDefault(_package);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var info = '\n\u25CF ' + _package2.default.name + ' v' + _package2.default.version + '\n\u25CF ' + _package2.default.description + '\n\u25CF ' + _colors2.default.blue(_package2.default.homepage) + '\n\u25CF ' + _package2.default.author.name + ' <' + _package2.default.author.email + '>\n';
-// import execa from 'execa'
-
-
-_commander2.default.name('dev').version(_package2.default.version).usage('<command> [options]').option('-i, --info', 'Tool introduction', info).command('serve', 'Create a local static file server');
+_commander2.default.name('dev').version(_package2.default.version).usage('<command> [options]').option('-i, --info', 'Tool introduction').command('serve', 'Create a local static file server').command('fanyi', 'Translate tool');
 
 _commander2.default.parse(process.argv);
 
-if (_commander2.default.info) console.log(info);
+var version = (0, _utils.color)(' ' + _package2.default.name + ' ', '1;100') + (0, _utils.color)(' v' + _package2.default.version + ' ', '1;104');
+var infos = ['\n  ' + version + ' ' + _package2.default.description + '\n', '     +--------------------------------------------------------+', '     |                                                        |', '     |   npm i -g ' + _package2.default.repository.url + '   |', '     |                                                        |', '     +--------------------------------------------------------+\n', '  + ' + (0, _utils.color)(_package2.default.homepage, 34), '  + Make by ' + _package2.default.author.name + ' <' + (0, _utils.color)(_package2.default.author.email, 32) + '>'];
+
+if (_commander2.default.info) console.log(infos.join('\n'));
