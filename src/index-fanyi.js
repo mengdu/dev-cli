@@ -81,8 +81,14 @@ async function main () {
             if (data.symbols[0].word_symbol) {
               chunk.push(`读音：${dye(data.symbols[0].word_symbol)}`)
             }
-            
-            chunk.push('单词：' + e.means.map(e => dye(e.word_mean)).join(', '))
+
+            chunk.push('单词：' + e.means.map(e => {
+              if (typeof e === 'string') {
+                return dye(e)
+              }
+
+              return dye(e.word_mean)
+            }).join(', '))
 
             if (data.symbols[0].symbol_mp3) {
               chunk.push('语音：' + dye(data.symbols[0].symbol_mp3))
