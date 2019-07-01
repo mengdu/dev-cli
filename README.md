@@ -59,3 +59,9 @@ BAIDU_FANYI_APPID = xxx # 百度翻译appid
 BAIDU_FANYI_SECRET = xxx # 百度翻译secret
 BAIDU_DEFAULT_TO = kor # 百度翻译结果语言，默认zh/en
 ```
+
+![](./public/info.png)
+
+![](./public/ciba.png)
+
+![](./public/lang.png)
