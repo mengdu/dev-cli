@@ -10,8 +10,8 @@ program
   .description('A devlopment tool')
   .usage('<command> [options]')
   .option('-i, --info', 'Tool introduction')
-  .command('serve', 'Create a local static file server').alias('s')
-  .command('fanyi', 'Translate tool').alias('f')
+  .command('serve', 'Create a local static file server', { executableFile: 'cmd-serve' }).alias('s')
+  .command('fanyi', 'Translate tool', { executableFile: 'cmd-fanyi' }).alias('f')
   .parse(process.argv)
 
 const version = color(` ${pkg.name} `, '1;100') + color(` v${pkg.version} `, '1;104')
