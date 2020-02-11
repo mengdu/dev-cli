@@ -51,7 +51,7 @@ function history(fn) {
               pathname = ctx.url;
 
 
-              if (ctx.method === 'GET' && ctx.headers.accept.indexOf('application/json') === -1 && pathname.indexOf('.') === -1) {
+              if (ctx.method === 'GET' && ctx.headers && ctx.headers.accept && ctx.headers.accept.indexOf('application/json') === -1 && pathname.indexOf('.') === -1) {
                 ctx.path = options.index || '/index.html';
               }
 
