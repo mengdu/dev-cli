@@ -24,6 +24,7 @@ dev serve [options] <dir> <port>
 
 **options:**
 
+ + `-s, --static` history 模式静态文件服务支持，默认 false
  + `-p, --port <port>` 指定端口，默认 `8080`
  + `-d, --dir <dir>` 指定文件夹，默认 `.`
  + `-o, --open` 自动打开浏览器，默认 false
